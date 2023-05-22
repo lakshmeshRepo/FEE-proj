@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        input{font-size: 20px;margin-top: 10px;}
+    </style>
+    <script>
+        function valid()
+        {
+           var uname= document.getElementById("uname");
+           var pass= document.getElementById("pass");
+           var cpass= document.getElementById("cpass");
+           var phno= document.getElementById("phno");
+           
+
+           if(uname.value=="")
+           {
+            alert("Please Enter User Name");
+            document.getElementById("uname").style.border='2px red solid';
+            document.getElementById("uname_err").style.visibility='visible'
+            return false;
+           }
+           if(pass.value=="")
+           {
+            alert("Please Enter Password");
+            document.getElementById("pass").style.border='2px red solid';
+            document.getElementById("pass_err").style.visibility='visible'
+            return false;
+           }
+           if(pass.value.length<6)
+           {
+            alert("Please Enter Password at least 6 charcter");
+            document.getElementById("pass").style.border='2px red solid';
+            document.getElementById("pass_err_len").style.visibility='visible'
+            
+            document.getElementById("pass").innerHTML="Please Enter Password at least 6 charcter"
+            
+            return false;
+           }
+           if(cpass.value!=pass.value)
+           {
+            alert("Please Enter COnfirm Password");
+            document.getElementById("cpass").style.border='2px red solid';
+            document.getElementById("cpass_err").style.visibility='visible'
+            return false;
+           }
+           if(phno.value.length!=10)
+           {
+            alert("Please Enter Correct Phone Number Password");
+            document.getElementById("phno").style.border='2px red solid';
+            document.getElementById("phno_err").style.visibility='visible'
+            return false;
+           
+           }
+           
+           
+           else{
+            alert("Successfully Submit");
+           }
+        }
+    </script>
+</head>
+<body>
+  <div class= "container">
+    <h1 style="margin-left: 85px;">Sign up</h1>
+   <form action="login.html" onsubmit="return valid();">
+    <h2>Name</h2>
+    <input type="text" id="uname" placeholder="Enter User Name">
+
+    <span id="uname_err" style="color: red;visibility: hidden;">Please Enter User Name</span>
+    <h2>Password</h2>
+    <input type="text" id="pass" placeholder="Enter Password">
+
+    <span id="pass_err" style="color: red;visibility: hidden;">Please Enter Password</span>
+    <span id="pass_err_len" style="color: red;visibility: hidden;">Please Enter Password at least 6 charcter</span>
+  <h2>Confirm Password</h2>
+
+    <input type="text" id="cpass" placeholder="Enter Confirm  Password">
+   
+
+    <span id="cpass_err" style="color: red;visibility: hidden;"> Password Not Match with COnfirm Password</span>
+  <h2>Mobile Number</h2>
+    <input type="phone" id="phno" placeholder="Enter Correct Phone Number">
+    <span id="phno_err" style="color: red;visibility: hidden;"> Enter Correct Phone Number</span>
+  
+    <input href="login.html" type="submit">
+    
+   </form> 
+  </div>
+</body>
+</html>
